@@ -10,12 +10,12 @@ import (
 
 	"github.com/sirupsen/logrus"
 
-	"github.com/mozilla/tls-observatory/config"
-	"github.com/mozilla/tls-observatory/connection"
-	pg "github.com/mozilla/tls-observatory/database"
-	"github.com/mozilla/tls-observatory/logger"
-	"github.com/mozilla/tls-observatory/metrics"
-	"github.com/mozilla/tls-observatory/worker"
+	"github.com/SecureGovernment/tls-observatory/config"
+	"github.com/SecureGovernment/tls-observatory/connection"
+	pg "github.com/SecureGovernment/tls-observatory/database"
+	"github.com/SecureGovernment/tls-observatory/logger"
+	"github.com/SecureGovernment/tls-observatory/metrics"
+	"github.com/SecureGovernment/tls-observatory/worker"
 )
 
 var db *pg.DB
@@ -145,6 +145,76 @@ func (s scanner) scan(scanID int64, cipherscan string) {
 	}()
 
 	var completion int
+
+	beforeWorkerInput := worker.Input{
+		DBHandle:         db,
+		Scanid:           scanID,
+		Target:           scan.Target,
+	}
+	// launch workers that evaluate the results
+	beforeResChan := make(chan worker.Result)
+	beforeTotalWorkers := 0
+	for k, wrkInfo := range worker.AvailableBeforeWorkers {
+		beforeWorkerInput.Params, _ = scan.AnalysisParams[k]
+		go wrkInfo.Runner.(worker.Worker).Run(beforeWorkerInput, beforeResChan)
+		beforeTotalWorkers++
+	}
+	log.WithFields(logrus.Fields{
+		"scan_id": scanID,
+		"count":   beforeTotalWorkers,
+	}).Info("Running before workers")
+
+	// read the results from the results chan in a loop until all workers have ran or expired
+	for endedWorkers := 0; endedWorkers < beforeTotalWorkers; endedWorkers++ {
+		select {
+		case <-time.After(30 * time.Second):
+			log.WithFields(logrus.Fields{
+				"scan_id": scanID,
+			}).Error("Before analysis workers timed out after 30 seconds")
+			continue
+			//goto updatecompletion
+		case res := <-beforeResChan:
+			completion = ((endedWorkers/beforeTotalWorkers)*60 + completion)
+			log.WithFields(logrus.Fields{
+				"scan_id":     scanID,
+				"worker_name": res.WorkerName,
+				"success":     res.Success,
+				"result":      string(res.Result),
+			}).Debug("Received results from worker")
+
+			err = db.UpdateScanCompletionPercentage(scanID, completion)
+			if err != nil {
+				log.WithFields(logrus.Fields{
+					"scan_id": scanID,
+					"error":   err.Error(),
+				}).Error("Could not update completion percentage")
+				continue
+			}
+			if !res.Success {
+				log.WithFields(logrus.Fields{
+					"worker_name": res.WorkerName,
+					"errors":      res.Errors,
+				}).Error("Before worker returned with errors")
+			} else {
+				_, err = db.Exec("INSERT INTO analysis(scan_id,worker_name,output,success) VALUES($1,$2,$3,$4)",
+					scanID, res.WorkerName, res.Result, res.Success)
+				if err != nil {
+					log.WithFields(logrus.Fields{
+						"scan_id": scanID,
+						"error":   err.Error(),
+					}).Error("Could not insert worker results in database")
+					continue
+				}
+				if s.metricsSender != nil {
+					s.metricsSender.NewAnalysis()
+				}
+				log.WithFields(logrus.Fields{
+					"scan_id":     scanID,
+					"worker_name": res.WorkerName,
+				}).Info("Results from worker stored in database")
+			}
+		}
+	}
 
 	// Retrieve the certificate from the target
 	certID, trustID, chain, err := handleCert(scan.Target)

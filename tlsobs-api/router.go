@@ -4,7 +4,7 @@ import (
 	"net/http"
 
 	"github.com/gorilla/mux"
-	"github.com/mozilla/tls-observatory/config"
+	"github.com/SecureGovernment/tls-observatory/config"
 )
 
 func NewRouter(conf config.Config) *mux.Router {

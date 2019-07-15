@@ -17,7 +17,7 @@ import (
 	"strings"
 	"time"
 
-	certconstraints "github.com/mozilla/tls-observatory/certificate/constraints"
+	certconstraints "github.com/SecureGovernment/tls-observatory/certificate/constraints"
 )
 
 const (

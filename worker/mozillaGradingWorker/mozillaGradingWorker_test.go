@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/mozilla/tls-observatory/connection"
+	"github.com/SecureGovernment/tls-observatory/connection"
 )
 
 type testSubject struct {

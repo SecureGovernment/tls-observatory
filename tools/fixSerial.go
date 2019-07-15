@@ -8,7 +8,7 @@ import (
 	"os"
 	"strings"
 
-	"github.com/mozilla/tls-observatory/database"
+	"github.com/SecureGovernment/tls-observatory/database"
 )
 
 func main() {

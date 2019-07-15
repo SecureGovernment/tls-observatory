@@ -7,7 +7,7 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/mozilla/tls-observatory/constants"
+	"github.com/SecureGovernment/tls-observatory/constants"
 )
 
 //following two structs represent cipherscan output

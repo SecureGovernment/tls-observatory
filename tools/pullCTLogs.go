@@ -20,7 +20,7 @@ import (
 	"github.com/google/certificate-transparency-go/client"
 	"github.com/google/certificate-transparency-go/jsonclient"
 	"github.com/google/certificate-transparency-go/x509"
-	"github.com/mozilla/tls-observatory/certificate"
+	"github.com/SecureGovernment/tls-observatory/certificate"
 	"github.com/viki-org/dnscache"
 )
 

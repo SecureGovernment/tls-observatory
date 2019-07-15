@@ -5,9 +5,9 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/mozilla/tls-observatory/certificate"
-	"github.com/mozilla/tls-observatory/logger"
-	"github.com/mozilla/tls-observatory/worker"
+	"github.com/SecureGovernment/tls-observatory/certificate"
+	"github.com/SecureGovernment/tls-observatory/logger"
+	"github.com/SecureGovernment/tls-observatory/worker"
 )
 
 var (

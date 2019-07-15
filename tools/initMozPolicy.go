@@ -10,9 +10,9 @@ import (
 	"os"
 	"strconv"
 
-	"github.com/mozilla/tls-observatory/certificate"
-	"github.com/mozilla/tls-observatory/certificate/constraints"
-	"github.com/mozilla/tls-observatory/database"
+	"github.com/SecureGovernment/tls-observatory/certificate"
+	"github.com/SecureGovernment/tls-observatory/certificate/constraints"
+	"github.com/SecureGovernment/tls-observatory/database"
 )
 
 const listQuery = `SELECT id, raw_cert

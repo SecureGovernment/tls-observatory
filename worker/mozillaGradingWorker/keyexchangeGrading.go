@@ -5,8 +5,8 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/mozilla/tls-observatory/connection"
-	"github.com/mozilla/tls-observatory/constants"
+	"github.com/SecureGovernment/tls-observatory/connection"
+	"github.com/SecureGovernment/tls-observatory/constants"
 	"github.com/sirupsen/logrus"
 )
 

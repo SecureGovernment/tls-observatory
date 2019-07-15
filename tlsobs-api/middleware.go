@@ -5,7 +5,7 @@ import (
 	"log"
 	"net/http"
 
-	pg "github.com/mozilla/tls-observatory/database"
+	pg "github.com/SecureGovernment/tls-observatory/database"
 )
 
 // Middleware wraps an http.Handler with additional

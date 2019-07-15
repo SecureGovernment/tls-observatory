@@ -11,8 +11,8 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/mozilla/tls-observatory/logger"
-	"github.com/mozilla/tls-observatory/worker"
+	"github.com/SecureGovernment/tls-observatory/logger"
+	"github.com/SecureGovernment/tls-observatory/worker"
 	"golang.org/x/crypto/ocsp"
 )
 

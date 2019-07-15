@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"log"
 
-	pg "github.com/mozilla/tls-observatory/database"
+	pg "github.com/SecureGovernment/tls-observatory/database"
 )
 
 func main() {

@@ -10,7 +10,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/mozilla/tls-observatory/database"
+	"github.com/SecureGovernment/tls-observatory/database"
 )
 
 type scan struct {

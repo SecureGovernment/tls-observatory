@@ -7,8 +7,8 @@ import (
 	"os"
 	"strconv"
 
-	"github.com/mozilla/tls-observatory/certificate"
-	"github.com/mozilla/tls-observatory/database"
+	"github.com/SecureGovernment/tls-observatory/certificate"
+	"github.com/SecureGovernment/tls-observatory/database"
 	diff "github.com/yudai/gojsondiff"
 	"github.com/yudai/gojsondiff/formatter"
 )

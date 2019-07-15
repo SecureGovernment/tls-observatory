@@ -9,8 +9,8 @@ import (
 
 	"github.com/sirupsen/logrus"
 
-	"github.com/mozilla/tls-observatory/certificate"
-	"github.com/mozilla/tls-observatory/config"
+	"github.com/SecureGovernment/tls-observatory/certificate"
+	"github.com/SecureGovernment/tls-observatory/config"
 )
 
 var trustStores []certificate.TrustStore

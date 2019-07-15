@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/mozilla/tls-observatory/certificate"
-	"github.com/mozilla/tls-observatory/connection"
-	"github.com/mozilla/tls-observatory/database"
+	"github.com/SecureGovernment/tls-observatory/certificate"
+	"github.com/SecureGovernment/tls-observatory/connection"
+	"github.com/SecureGovernment/tls-observatory/database"
 )
 
 // Result contains all the info each worker can provide as a result,
@@ -48,6 +48,16 @@ func RegisterWorker(name string, info Info) {
 		os.Exit(1)
 	}
 	AvailableWorkers[name] = info
+}
+
+var AvailableBeforeWorkers = make(map[string]Info)
+
+func RegisterBeforeWorker(name string, info Info) {
+	if _, exist := AvailableBeforeWorkers[name]; exist {
+		fmt.Fprintf(os.Stderr, "RegisterWorker: a worker named %q has already been registered.\nAre you trying to import the same worker twice?\n", name)
+		os.Exit(1)
+	}
+	AvailableBeforeWorkers[name] = info
 }
 
 // AvailablePrinters is the global variable that contains all the workers printers

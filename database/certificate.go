@@ -10,7 +10,7 @@ import (
 	"time"
 
 	"github.com/lib/pq"
-	"github.com/mozilla/tls-observatory/certificate"
+	"github.com/SecureGovernment/tls-observatory/certificate"
 )
 
 // InsertCertificate inserts a x509 certificate to the database.

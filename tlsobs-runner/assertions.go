@@ -11,10 +11,10 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/mozilla/tls-observatory/certificate"
-	"github.com/mozilla/tls-observatory/database"
-	"github.com/mozilla/tls-observatory/worker"
-	_ "github.com/mozilla/tls-observatory/worker/mozillaEvaluationWorker"
+	"github.com/SecureGovernment/tls-observatory/certificate"
+	"github.com/SecureGovernment/tls-observatory/database"
+	"github.com/SecureGovernment/tls-observatory/worker"
+	_ "github.com/SecureGovernment/tls-observatory/worker/mozillaEvaluationWorker"
 )
 
 func (r Run) AssertNotBefore(a Assertion, target string, cnb time.Time, notifchan chan Notification) {

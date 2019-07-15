@@ -4,9 +4,9 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/mozilla/tls-observatory/connection"
-	"github.com/mozilla/tls-observatory/logger"
-	"github.com/mozilla/tls-observatory/worker"
+	"github.com/SecureGovernment/tls-observatory/connection"
+	"github.com/SecureGovernment/tls-observatory/logger"
+	"github.com/SecureGovernment/tls-observatory/worker"
 )
 
 var workerName = "mozillaGradingWorker"

@@ -5,8 +5,8 @@ import (
 	"os"
 	"testing"
 
-	"github.com/mozilla/tls-observatory/certificate"
-	"github.com/mozilla/tls-observatory/connection"
+	"github.com/SecureGovernment/tls-observatory/certificate"
+	"github.com/SecureGovernment/tls-observatory/connection"
 )
 
 type testParams struct {

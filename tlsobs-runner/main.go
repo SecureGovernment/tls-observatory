@@ -20,8 +20,8 @@ import (
 	"time"
 
 	"github.com/gorhill/cronexpr"
-	"github.com/mozilla/tls-observatory/certificate"
-	"github.com/mozilla/tls-observatory/database"
+	"github.com/SecureGovernment/tls-observatory/certificate"
+	"github.com/SecureGovernment/tls-observatory/database"
 
 	"gopkg.in/yaml.v2"
 )

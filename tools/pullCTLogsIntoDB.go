@@ -22,8 +22,8 @@ import (
 	"github.com/google/certificate-transparency-go/client"
 	"github.com/google/certificate-transparency-go/jsonclient"
 	ctx509 "github.com/google/certificate-transparency-go/x509"
-	"github.com/mozilla/tls-observatory/certificate"
-	pg "github.com/mozilla/tls-observatory/database"
+	"github.com/SecureGovernment/tls-observatory/certificate"
+	pg "github.com/SecureGovernment/tls-observatory/database"
 )
 
 const CTBATCHSIZE = 100

@@ -11,7 +11,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/mozilla/tls-observatory/certificate"
+	"github.com/SecureGovernment/tls-observatory/certificate"
 	"github.com/sirupsen/logrus"
 )
 

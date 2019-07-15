@@ -10,8 +10,8 @@ import (
 	lru "github.com/hashicorp/golang-lru"
 	_ "github.com/lib/pq"
 
-	"github.com/mozilla/tls-observatory/connection"
-	"github.com/mozilla/tls-observatory/metrics"
+	"github.com/SecureGovernment/tls-observatory/connection"
+	"github.com/SecureGovernment/tls-observatory/metrics"
 )
 
 type DB struct {

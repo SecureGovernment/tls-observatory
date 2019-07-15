@@ -9,7 +9,7 @@ import (
 	"github.com/lib/pq"
 	"github.com/sirupsen/logrus"
 
-	"github.com/mozilla/tls-observatory/logger"
+	"github.com/SecureGovernment/tls-observatory/logger"
 )
 
 // RegisterScanListener "subscribes" to the notifications published to the scan_listener notifier.

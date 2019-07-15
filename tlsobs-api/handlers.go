@@ -17,8 +17,8 @@ import (
 	"bytes"
 	"crypto/sha256"
 
-	"github.com/mozilla/tls-observatory/certificate"
-	pg "github.com/mozilla/tls-observatory/database"
+	"github.com/SecureGovernment/tls-observatory/certificate"
+	pg "github.com/SecureGovernment/tls-observatory/database"
 )
 
 var scanRefreshRate float64

@@ -8,9 +8,9 @@ import (
 	"runtime"
 	"time"
 
-	"github.com/mozilla/tls-observatory/config"
-	pg "github.com/mozilla/tls-observatory/database"
-	"github.com/mozilla/tls-observatory/logger"
+	"github.com/SecureGovernment/tls-observatory/config"
+	pg "github.com/SecureGovernment/tls-observatory/database"
+	"github.com/SecureGovernment/tls-observatory/logger"
 	"go.mozilla.org/mozlog"
 )
 

@@ -1,6 +1,6 @@
 package mozillaGradingWorker
 
-import "github.com/mozilla/tls-observatory/connection"
+import "github.com/SecureGovernment/tls-observatory/connection"
 
 const (
 	sslv2  = 0

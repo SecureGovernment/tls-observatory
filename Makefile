@@ -29,19 +29,19 @@ all: test tlsobs-scanner tlsobs-api tlsobs tlsobs-runner
 
 tlsobs-scanner:
 	echo building TLS Observatory Scanner for $(OS)/$(ARCH)
-	$(GO) build $(GOOPTS) -o $(GOPATH)/bin/tlsobs-scanner$(BINSUFFIX) $(GOLDFLAGS) github.com/mozilla/tls-observatory/tlsobs-scanner
+	$(GO) build $(GOOPTS) -o $(GOPATH)/bin/tlsobs-scanner$(BINSUFFIX) $(GOLDFLAGS) github.com/SecureGovernment/tls-observatory/tlsobs-scanner
 
 tlsobs-api:
 	echo building tlsobs-api for $(OS)/$(ARCH)
-	$(GO) build $(GOOPTS) -o $(GOPATH)/bin/tlsobs-api$(BINSUFFIX) $(GOLDFLAGS) github.com/mozilla/tls-observatory/tlsobs-api
+	$(GO) build $(GOOPTS) -o $(GOPATH)/bin/tlsobs-api$(BINSUFFIX) $(GOLDFLAGS) github.com/SecureGovernment/tls-observatory/tlsobs-api
 
 tlsobs:
 	echo building tlsobs client for $(OS)/$(ARCH)
-	$(GO) build $(GOOPTS) -o $(GOPATH)/bin/tlsobs$(BINSUFFIX) $(GOLDFLAGS) github.com/mozilla/tls-observatory/tlsobs
+	$(GO) build $(GOOPTS) -o $(GOPATH)/bin/tlsobs$(BINSUFFIX) $(GOLDFLAGS) github.com/SecureGovernment/tls-observatory/tlsobs
 
 tlsobs-runner:
 	echo building tlsobs-runner for $(OS)/$(ARCH)
-	$(GO) build $(GOOPTS) -o $(GOPATH)/bin/tlsobs-runner$(BINSUFFIX) $(GOLDFLAGS) github.com/mozilla/tls-observatory/tlsobs-runner
+	$(GO) build $(GOOPTS) -o $(GOPATH)/bin/tlsobs-runner$(BINSUFFIX) $(GOLDFLAGS) github.com/SecureGovernment/tls-observatory/tlsobs-runner
 
 vendor:
 	govend -u --prune
