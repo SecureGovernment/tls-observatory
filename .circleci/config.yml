@@ -20,6 +20,8 @@ jobs:
           command: |
             make truststores cipherscan ciscotop1m alexatop1m
             make
+      - run: curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+      - run: sudo apt-get install -y nodejs
       - sonarcloud/scan
 
 orbs:
